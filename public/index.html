@@ -140,46 +140,16 @@
     <!-- Our Products -->
     <section class="py-16 px-4 md:px-16 lg:px-24">
         <h2 class="text-3xl md:text-4xl font-semibold text-center mb-4">Our Products</h2>
-        <div class="flex justify-center space-x-8 mb-12 border-b">
-            <a href="#" class="py-4 px-2 border-b-2 border-black font-semibold">Top</a>
-            <a href="#" class="py-4 px-2 text-gray-500 hover:border-b-2 hover:border-black">Bottom</a>
-            <a href="#" class="py-4 px-2 text-gray-500 hover:border-b-2 hover:border-black">Dress</a>
-            <a href="#" class="py-4 px-2 text-gray-500 hover:border-b-2 hover:border-black">Set</a>
-            <a href="#" class="py-4 px-2 text-gray-500 hover:border-b-2 hover:border-black">Knit</a>
-            <a href="#" class="py-4 px-2 text-gray-500 hover:border-b-2 hover:border-black">Outer</a>
+        <div class="flex justify-center space-x-8 mb-12 border-b" id="product-categories">
+            <a href="#" class="py-4 px-2 border-b-2 border-black font-semibold" data-category="Top">Top</a>
+            <a href="#" class="py-4 px-2 text-gray-500 hover:border-b-2 hover:border-black" data-category="Bottom">Bottom</a>
+            <a href="#" class="py-4 px-2 text-gray-500 hover:border-b-2 hover:border-black" data-category="Dress">Dress</a>
+            <a href="#" class="py-4 px-2 text-gray-500 hover:border-b-2 hover:border-black" data-category="Set">Set</a>
+            <a href="#" class="py-4 px-2 text-gray-500 hover:border-b-2 hover:border-black" data-category="Knit">Knit</a>
+            <a href="#" class="py-4 px-2 text-gray-500 hover:border-b-2 hover:border-black" data-category="Outer">Outer</a>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
-            <!-- Product Cards -->
-            <div class="text-center">
-                 <div class="bg-gray-300 h-64 rounded-lg mb-4 bg-cover bg-center" style="background-image: url('https://cdn.caratlane.com/media/catalog/product/J/E/JE10645-8YS300_1_lar.jpg')"></div>
-                <h3 class="text-md font-medium">Eto V Neck Yellow</h3>
-                <p class="text-gray-500">Rp. 129.000</p>
-            </div>
-             <div class="text-center">
-                 <div class="bg-gray-300 h-64 rounded-lg mb-4 bg-cover bg-center" style="background-image: url('https://cdn.caratlane.com/media/catalog/product/J/R/JR09908-8RS300_1_lar.jpg')"></div>
-                <h3 class="text-md font-medium">Macaroon Dry Half</h3>
-                <p class="text-gray-500">Rp. 139.000</p>
-            </div>
-             <div class="text-center">
-                 <div class="bg-gray-300 h-64 rounded-lg mb-4 bg-cover bg-center" style="background-image: url('https://cdn.caratlane.com/media/catalog/product/J/E/JE10661-8YS300_1_lar.jpg')"></div>
-                <h3 class="text-md font-medium">Wave Stripe Hally</h3>
-                <p class="text-gray-500">Rp. 130.000</p>
-            </div>
-             <div class="text-center">
-                 <div class="bg-gray-300 h-64 rounded-lg mb-4 bg-cover bg-center" style="background-image: url('https://cdn.caratlane.com/media/catalog/product/J/R/JR09753-8YS300_1_lar.jpg')"></div>
-                <h3 class="text-md font-medium">Eve Punching Floral</h3>
-                <p class="text-gray-500">Rp. 229.000</p>
-            </div>
-             <div class="text-center">
-                 <div class="bg-gray-300 h-64 rounded-lg mb-4 bg-cover bg-center" style="background-image: url('https://cdn.caratlane.com/media/catalog/product/J/E/JE10645-8YS300_1_lar.jpg')"></div>
-                <h3 class="text-md font-medium">Floral Waffle Tee</h3>
-                <p class="text-gray-500">Rp. 119.000</p>
-            </div>
-             <div class="text-center">
-                 <div class="bg-gray-300 h-64 rounded-lg mb-4 bg-cover bg-center" style="background-image: url('https://cdn.caratlane.com/media/catalog/product/J/R/JR09908-8RS300_1_lar.jpg')"></div>
-                <h3 class="text-md font-medium">Snap Pure Blouse</h3>
-                <p class="text-gray-500">Rp. 225.000</p>
-            </div>
+        <div id="product-grid" class="flex flex-wrap justify-center gap-8">
+            <!-- Product cards will be dynamically inserted here -->
         </div>
         <div class="text-center mt-12">
             <button class="bg-black text-white py-3 px-10 rounded-full hover:bg-gray-800 transition flex items-center justify-center mx-auto">
@@ -403,6 +373,63 @@
         navToggle.addEventListener('click', () => {
             mobileNav.classList.toggle('hidden');
         });
+        
+        const products = [
+            { name: 'Eto V Neck Yellow', price: 'Rp. 129.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/E/JE10645-8YS300_1_lar.jpg', category: 'Top' },
+            { name: 'Macaroon Dry Half', price: 'Rp. 139.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/R/JR09908-8RS300_1_lar.jpg', category: 'Top' },
+            { name: 'Wave Stripe Hally', price: 'Rp. 130.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/E/JE10661-8YS300_1_lar.jpg', category: 'Top' },
+            { name: 'Eve Punching Floral', price: 'Rp. 229.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/R/JR09753-8YS300_1_lar.jpg', category: 'Dress' },
+            { name: 'Floral Waffle Tee', price: 'Rp. 119.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/E/JE10645-8YS300_1_lar.jpg', category: 'Top' },
+            { name: 'Snap Pure Blouse', price: 'Rp. 225.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/R/JR09908-8RS300_1_lar.jpg', category: 'Top' },
+            { name: 'Blue Denim Skirt', price: 'Rp. 150.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/R/JR09753-8YS300_1_lar.jpg', category: 'Bottom' },
+            { name: 'Black Formal Pants', price: 'Rp. 250.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/E/JE10645-8YS300_1_lar.jpg', category: 'Bottom' },
+            { name: 'Summer Dress', price: 'Rp. 300.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/E/JE10661-8YS300_1_lar.jpg', category: 'Dress' },
+            { name: 'Winter Knit Sweater', price: 'Rp. 275.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/R/JR09908-8RS300_1_lar.jpg', category: 'Knit' },
+            { name: 'Casual Outer Jacket', price: 'Rp. 350.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/E/JE10645-8YS300_1_lar.jpg', category: 'Outer' },
+            { name: 'Matching Top and Bottom Set', price: 'Rp. 450.000', image: 'https://cdn.caratlane.com/media/catalog/product/J/R/JR09753-8YS300_1_lar.jpg', category: 'Set' }
+        ];
+
+        const productGrid = document.getElementById('product-grid');
+        const categoryLinks = document.querySelectorAll('#product-categories a');
+
+        function renderProducts(category) {
+            productGrid.innerHTML = '';
+            let filteredProducts = category === 'All' ? products : products.filter(p => p.category === category);
+            
+            // Limit to 5 products
+            filteredProducts = filteredProducts.slice(0, 5);
+
+            filteredProducts.forEach(product => {
+                const productCard = `
+                    <div class="text-center w-64">
+                        <div class="bg-gray-300 h-64 rounded-lg mb-4 bg-cover bg-center" style="background-image: url('${product.image}')"></div>
+                        <h3 class="text-md font-medium">${product.name}</h3>
+                        <p class="text-gray-500">${product.price}</p>
+                    </div>
+                `;
+                productGrid.innerHTML += productCard;
+            });
+        }
+
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = link.dataset.category;
+
+                categoryLinks.forEach(l => {
+                    l.classList.remove('border-black', 'font-semibold');
+                    l.classList.add('text-gray-500', 'hover:border-b-2', 'hover:border-black');
+                });
+
+                link.classList.add('border-black', 'font-semibold');
+                link.classList.remove('text-gray-500', 'hover:border-b-2', 'hover:border-black');
+
+                renderProducts(category);
+            });
+        });
+
+        // Initial render
+        renderProducts('Top');
     </script>
 </body>
 </html>
