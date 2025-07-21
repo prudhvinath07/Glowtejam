@@ -1,8 +1,6 @@
-"use client";
-
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { cn } from "@/lib/utils";
 
 type Testimonial = {
@@ -12,39 +10,56 @@ type Testimonial = {
   src: string;
 };
 
+interface AnimatedTestimonialsProps {
+  testimonials: Testimonial[];
+  autoplay?: boolean;
+  autoplayInterval?: number;
+  className?: string;
+  onTestimonialChange?: (index: number) => void;
+}
+
 export const AnimatedTestimonials = ({
   testimonials,
   autoplay = false,
+  autoplayInterval = 5000,
   className,
-}: {
-  testimonials: Testimonial[];
-  autoplay?: boolean;
-  className?: string;
-}) => {
+  onTestimonialChange,
+}: AnimatedTestimonialsProps) => {
   const [active, setActive] = useState(0);
 
-  const handleNext = () => {
-    setActive((prev) => (prev + 1) % testimonials.length);
-  };
+  const handleNext = useCallback(() => {
+    const nextIndex = (active + 1) % testimonials.length;
+    setActive(nextIndex);
+    onTestimonialChange?.(nextIndex);
+  }, [active, testimonials.length, onTestimonialChange]);
 
-  const handlePrev = () => {
-    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const handlePrev = useCallback(() => {
+    const prevIndex = (active - 1 + testimonials.length) % testimonials.length;
+    setActive(prevIndex);
+    onTestimonialChange?.(prevIndex);
+  }, [active, testimonials.length, onTestimonialChange]);
 
-  const isActive = (index: number) => {
-    return index === active;
-  };
+  const goToTestimonial = useCallback((index: number) => {
+    setActive(index);
+    onTestimonialChange?.(index);
+  }, [onTestimonialChange]);
+
+  const isActive = useCallback((index: number) => index === active, [active]);
 
   useEffect(() => {
-    if (autoplay) {
-      const interval = setInterval(handleNext, 5000);
+    if (autoplay && testimonials.length > 1) {
+      const interval = setInterval(handleNext, autoplayInterval);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, autoplayInterval, handleNext, testimonials.length]);
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
+  const randomRotateY = useMemo(() => {
+    return () => Math.floor(Math.random() * 21) - 10;
+  }, []);
+
+  if (!testimonials.length) {
+    return null;
+  }
 
   return (
     <div className={cn("max-w-sm md:max-w-4xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
@@ -85,10 +100,11 @@ export const AnimatedTestimonials = ({
                 >
                   <img
                     src={testimonial.src}
-                    alt={testimonial.name}
+                    alt={`${testimonial.name} - ${testimonial.designation}`}
                     width={500}
                     height={500}
                     draggable={false}
+                    loading="lazy"
                     className="h-full w-full rounded-3xl object-cover object-center"
                   />
                 </motion.div>
@@ -148,16 +164,37 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
+          <div className="flex items-center gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="h-7 w-7 rounded-full bg-secondary flex items-center justify-center group/button"
+              disabled={testimonials.length <= 1}
+              aria-label="Previous testimonial"
+              className="h-7 w-7 rounded-full bg-secondary flex items-center justify-center group/button disabled:opacity-50 disabled:cursor-not-allowed hover:bg-secondary/80 transition-colors"
             >
               <IconArrowLeft className="h-5 w-5 text-foreground group-hover/button:rotate-12 transition-transform duration-300" />
             </button>
+            
+            <div className="flex gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToTestimonial(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                  className={cn(
+                    "w-2 h-2 rounded-full transition-all duration-300",
+                    isActive(index) 
+                      ? "bg-foreground w-6" 
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  )}
+                />
+              ))}
+            </div>
+            
             <button
               onClick={handleNext}
-              className="h-7 w-7 rounded-full bg-secondary flex items-center justify-center group/button"
+              disabled={testimonials.length <= 1}
+              aria-label="Next testimonial"
+              className="h-7 w-7 rounded-full bg-secondary flex items-center justify-center group/button disabled:opacity-50 disabled:cursor-not-allowed hover:bg-secondary/80 transition-colors"
             >
               <IconArrowRight className="h-5 w-5 text-foreground group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>
