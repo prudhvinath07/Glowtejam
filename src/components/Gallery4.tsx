@@ -20,54 +20,114 @@ export interface Gallery4Item {
 export interface Gallery4Props {
   title?: string;
   description?: string;
-  items: Gallery4Item[];
+  items?: Gallery4Item[];
 }
 
 const data = [
   {
-    id: "shadcn-ui",
-    title: "shadcn/ui: Building a Modern Component Library",
-    description:
-      "Explore how shadcn/ui revolutionized React component libraries by providing a unique approach to component distribution and customization, making it easier for developers to build beautiful, accessible applications.",
-    href: "https://ui.shadcn.com",
-    image:
-      "https://images.unsplash.com/photo-1551250928-243dc937c49d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMjN8fHx8fHwyfHwxNzIzODA2OTM5fA&ixlib=rb-4.0.3&q=80&w=1080",
+    id: "img1",
+    title: "Image 1",
+    description: "Description for Image 1",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img1.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img1.webp",
   },
   {
-    id: "tailwind",
-    title: "Tailwind CSS: The Utility-First Revolution",
-    description:
-      "Discover how Tailwind CSS transformed the way developers style their applications, offering a utility-first approach that speeds up development while maintaining complete design flexibility.",
-    href: "https://tailwindcss.com",
-    image:
-      "https://images.unsplash.com/photo-1551250928-e4a05afaed1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMjR8fHx8fHwyfHwxNzIzODA2OTM5fA&ixlib=rb-4.0.3&q=80&w=1080",
+    id: "img2",
+    title: "Image 2",
+    description: "Description for Image 2",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img2.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img2.webp",
   },
   {
-    id: "astro",
-    title: "Astro: The All-in-One Web Framework",
-    description:
-      "Learn how Astro's innovative 'Islands Architecture' and zero-JS-by-default approach is helping developers build faster websites while maintaining rich interactivity where needed.",
-    href: "https://astro.build",
-    image:
-      "https://images.unsplash.com/photo-1536735561749-fc87494598cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxNzd8fHx8fHwyfHwxNzIzNjM0NDc0fA&ixlib=rb-4.0.3&q=80&w=1080",
+    id: "img3",
+    title: "Image 3",
+    description: "Description for Image 3",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img3.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img3.webp",
   },
   {
-    id: "react",
-    title: "React: Pioneering Component-Based UI",
-    description:
-      "See how React continues to shape modern web development with its component-based architecture, enabling developers to build complex user interfaces with reusable, maintainable code.",
-    href: "https://react.dev",
-    image:
-      "https://images.unsplash.com/photo-1548324215-9133768e4094?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMzF8fHx8fHwyfHwxNzIzNDM1MzA1fA&ixlib=rb-4.0.3&q=80&w=1080",
+    id: "img4",
+    title: "Image 4",
+    description: "Description for Image 4",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img4.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img4.webp",
   },
   {
-    id: "nextjs",
-    title: "Next.js: The React Framework for Production",
-    description:
-      "Explore how Next.js has become the go-to framework for building full-stack React applications, offering features like server components, file-based routing, and automatic optimization.",
-    href: "https://nextjs.org",
-    image:
-      "https://images.unsplash.com/photo-1550070881-a5d71eda5800?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMjV8fHx8fHwyfHwxNzIzNDM1Mjk4fA&ixlib=rb-4.0.3&q=80&w=1080",
+    id: "img5",
+    title: "Image 5",
+    description: "Description for Image 5",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img5.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img5.webp",
+  },
+  {
+    id: "img6",
+    title: "Image 6",
+    description: "Description for Image 6",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img6.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img6.webp",
+  },
+  {
+    id: "img7",
+    title: "Image 7",
+    description: "Description for Image 7",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img7.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img7.webp",
+  },
+  {
+    id: "img8",
+    title: "Image 8",
+    description: "Description for Image 8",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img8.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img8.webp",
+  },
+  {
+    id: "img9",
+    title: "Image 9",
+    description: "Description for Image 9",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img9.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img9.webp",
+  },
+  {
+    id: "img10",
+    title: "Image 10",
+    description: "Description for Image 10",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img10.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img10.webp",
+  },
+  {
+    id: "img11",
+    title: "Image 11",
+    description: "Description for Image 11",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img11.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img11.webp",
+  },
+  {
+    id: "img12",
+    title: "Image 12",
+    description: "Description for Image 12",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img12.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img12.webp",
+  },
+  {
+    id: "img13",
+    title: "Image 13",
+    description: "Description for Image 13",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img13.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img13.webp",
+  },
+  {
+    id: "img14",
+    title: "Image 14",
+    description: "Description for Image 14",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img14.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img14.webp",
+  },
+  {
+    id: "img15",
+    title: "Image 15",
+    description: "Description for Image 15",
+    href: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img15.webp",
+    image: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img15.webp",
   },
 ];
 

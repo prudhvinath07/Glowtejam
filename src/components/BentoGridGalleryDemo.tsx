@@ -1,63 +1,63 @@
-import InteractiveBentoGallery from "@/components/blocks/interactive-bento-gallery"
+import InteractiveBentoGallery from "@/components/blocks/interactive-bento-gallery";
 
 const mediaItems = [
   {
     id: 1,
     type: "image",
-    title: "Anurag Mishra",
-    desc: "Driven, innovative, visionary",
-    url: "https://kxptt4m9j4.ufs.sh/f/9YHhEDeslzkcbP3rYTiXwH7Y106CepJOsoAgQjyFi3MUfDkh",
+    title: "Image 1",
+    desc: "Description for Image 1",
+    url: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img1.webp",
     span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
   },
   {
     id: 2,
-    type: "video",
-    title: "Dog Puppy",
-    desc: "Adorable loyal companion.",
-    url: "https://cdn.pixabay.com/video/2024/07/24/222837_large.mp4",
+    type: "image",
+    title: "Image 2",
+    desc: "Description for Image 2",
+    url: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img2.webp",
     span: "md:col-span-2 md:row-span-2 col-span-1 sm:col-span-2 sm:row-span-2",
   },
   {
     id: 3,
     type: "image",
-    title: "Forest Path",
-    desc: "Mystical forest trail",
-    url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+    title: "Image 3",
+    desc: "Description for Image 3",
+    url: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img3.webp",
     span: "md:col-span-1 md:row-span-3 sm:col-span-2 sm:row-span-2 ",
   },
   {
     id: 4,
     type: "image",
-    title: "Falling Leaves",
-    desc: "Autumn scenery",
-    url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+    title: "Image 4",
+    desc: "Description for Image 4",
+    url: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img4.webp",
     span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2 ",
   },
   {
     id: 5,
-    type: "video",
-    title: "Bird Parrot",
-    desc: "Vibrant feathered charm",
-    url: "https://cdn.pixabay.com/video/2020/07/30/46026-447087782_large.mp4",
+    type: "image",
+    title: "Image 5",
+    desc: "Description for Image 5",
+    url: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img5.webp",
     span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2 ",
   },
   {
     id: 6,
     type: "image",
-    title: "Beach Paradise",
-    desc: "Sunny tropical beach",
-    url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    title: "Image 6",
+    desc: "Description for Image 6",
+    url: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img6.webp",
     span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2 ",
   },
   {
     id: 7,
-    type: "video",
-    title: "Shiva Temple",
-    desc: "Peaceful Shiva sanctuary.",
-    url: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4",
+    type: "image",
+    title: "Image 7",
+    desc: "Description for Image 7",
+    url: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img7.webp",
     span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2 ",
   },
-]
+];
 
 export function BentoGridGalleryDemo() {
   return (
@@ -68,5 +68,5 @@ export function BentoGridGalleryDemo() {
         description="Drag and explore our curated collection of shots"
       />
     </div>
-  )
+  );
 }

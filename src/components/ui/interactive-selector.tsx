@@ -13,38 +13,38 @@ const InteractiveSelector = () => {
 
   const options = [
     {
-      title: "Luxury Tent",
-      description: "Cozy glamping under the stars",
+      title: "Image 1",
+      description: "Description for Image 1",
       image:
-        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img1.webp",
       icon: <FaCampground size={24} className="text-white" />,
     },
     {
-      title: "Campfire Feast",
-      description: "Gourmet s'mores & stories",
+      title: "Image 2",
+      description: "Description for Image 2",
       image:
-        "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
+        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img2.webp",
       icon: <FaFire size={24} className="text-white" />,
     },
     {
-      title: "Lakeside Retreat",
-      description: "Private dock & canoe rides",
+      title: "Image 3",
+      description: "Description for Image 3",
       image:
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img3.webp",
       icon: <FaTint size={24} className="text-white" />,
     },
     {
-      title: "Mountain Spa",
-      description: "Outdoor sauna & hot tub",
+      title: "Image 4",
+      description: "Description for Image 4",
       image:
-        "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80",
+        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img4.webp",
       icon: <FaHotTub size={24} className="text-white" />,
     },
     {
-      title: "Guided Adventure",
-      description: "Expert-led nature tours",
+      title: "Image 5",
+      description: "Description for Image 5",
       image:
-        "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80",
+        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img5.webp",
       icon: <FaHiking size={24} className="text-white" />,
     },
   ];
