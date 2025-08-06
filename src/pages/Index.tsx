@@ -1,7 +1,7 @@
 import { NavBarDemo } from "@/components/NavBarDemo"
 import { DemoOne } from "@/components/DemoOne"
 import { BentoGridGalleryDemo } from "@/components/BentoGridGalleryDemo"
-import { AnimatedTestimonialsDemo } from "@/components/AnimatedTestimonialsDemo"
+import { JewelryShowcaseDemo } from "@/components/AnimatedTestimonialsDemo"
 import { TestimonialsColumns } from "@/components/TestimonialsColumns"
 import { Gallery4 } from "@/components/Gallery4"
 import { Logo } from "@/components/Logo"
@@ -29,8 +29,8 @@ const Index = () => {
       {/* Bento Gallery Section */}
       <BentoGridGalleryDemo />
 
-      {/* Testimonials Section */}
-      <AnimatedTestimonialsDemo />
+      {/* Jewelry Showcase Section */}
+      <JewelryShowcaseDemo />
 
       {/* Testimonials Columns Section */}
       <TestimonialsColumns />

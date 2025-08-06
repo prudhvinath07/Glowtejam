@@ -11,7 +11,7 @@ const FooterSection = () => {
   return (
     <Footer
       companyName="GLOWTEJAM"
-      companyDescription="Stay connected with us for the latest updates, exclusive offers, and innovative solutions."
+      companyDescription="Exquisite jewelry for every occasion. Handcrafted with passion, designed for eternity."
       contactInfo={{
         address: "Hyderabad",
         city: "",
@@ -26,11 +26,10 @@ const FooterSection = () => {
       }}
       quickLinks={[
         { label: "Home", href: "/" },
-        { label: "About", href: "/about" },
-        { label: "Services", href: "/services" },
-        { label: "Portfolio", href: "/portfolio" },
+        { label: "Collections", href: "#collections" },
+        { label: "About Us", href: "#about" },
+        { label: "Contact", href: "#contact" },
         { label: "Blog", href: "/blog" },
-        { label: "Contact", href: "/contact" },
       ]}
       onNewsletterSubmit={handleNewsletterSubmit}
     />

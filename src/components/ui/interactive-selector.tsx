@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
-  FaCampground,
-  FaFire,
-  FaTint,
-  FaHotTub,
-  FaHiking,
-} from "react-icons/fa";
+  Gem,
+  Sparkles,
+  Leaf,
+  Droplet,
+  Heart,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const InteractiveSelector = () => {
@@ -14,39 +14,39 @@ const InteractiveSelector = () => {
 
   const options = [
     {
-      title: "Image 1",
-      description: "Description for Image 1",
+      title: "The Diamond's Radiance",
+      description: "Symbol of purity and eternal love.",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img1.webp",
-      icon: <FaCampground size={24} className="text-white dark:text-gray-100" />,
+      icon: <Gem size={24} className="text-white dark:text-gray-100" />,
     },
     {
-      title: "Image 2",
-      description: "Description for Image 2",
-      image:
-        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img2.webp",
-      icon: <FaFire size={24} className="text-white dark:text-gray-100" />,
-    },
-    {
-      title: "Image 3",
-      description: "Description for Image 3",
-      image:
-        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img3.webp",
-      icon: <FaTint size={24} className="text-white dark:text-gray-100" />,
-    },
-    {
-      title: "Image 4",
-      description: "Description for Image 4",
-      image:
-        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img4.webp",
-      icon: <FaHotTub size={24} className="text-white dark:text-gray-100" />,
-    },
-    {
-      title: "Image 5",
-      description: "Description for Image 5",
+      title: "The Ruby's Passion",
+      description: "Represents love, passion, and courage.",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img5.webp",
-      icon: <FaHiking size={24} className="text-white dark:text-gray-100" />,
+      icon: <Heart size={24} className="text-white dark:text-gray-100" />,
+    },
+    {
+      title: "The Emerald's Hope",
+      description: "Symbol of hope, renewal, and growth.",
+      image:
+        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img3.webp",
+      icon: <Leaf size={24} className="text-white dark:text-gray-100" />,
+    },
+    {
+      title: "The Sapphire's Wisdom",
+      description: "Represents wisdom, loyalty, and nobility.",
+      image:
+        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img4.webp",
+      icon: <Sparkles size={24} className="text-white dark:text-gray-100" />,
+    },
+    {
+      title: "The Pearl's Purity",
+      description: "Symbol of purity, innocence, and wisdom.",
+      image:
+        "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img2.webp",
+      icon: <Droplet size={24} className="text-white dark:text-gray-100" />,
     },
   ];
 
@@ -76,11 +76,10 @@ const InteractiveSelector = () => {
       {/* Header Section */}
       <div className="w-full max-w-2xl px-4 sm:px-6 mt-8 mb-2 text-center">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-3 tracking-tight drop-shadow-lg">
-          Escape in Style
+          Design Your Dream Piece
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium max-w-xl mx-auto">
-          Discover luxurious camping experiences in nature's most breathtaking
-          spots.
+          Select your favorite gemstone and let us craft a unique piece of jewelry that tells your story.
         </p>
       </div>
 

@@ -5,8 +5,8 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({
-  title = "Welcome to Your App",
-  subtitle = "Beautiful tubelight navbar above!",
+  title = "Elegance Redefined: The GLOWTEJAM Collection",
+  subtitle = "Discover jewelry that tells your story. Handcrafted with passion, designed for eternity.",
   backgroundImage = "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img1.webp",
 }: HeroSectionProps) => {
   return (

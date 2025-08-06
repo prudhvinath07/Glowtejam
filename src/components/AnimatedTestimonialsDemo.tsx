@@ -1,121 +1,97 @@
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import { useState, useCallback, useMemo } from "react";
+import { JewelryShowcase } from "@/components/JewelryShowcase";
+import { useMemo } from "react";
 
-const TESTIMONIALS_DATA = [
+const JEWELRY_DATA = [
   {
-    quote: "Quote for Image 1",
-    name: "Name 1",
-    designation: "Designation 1",
+    title: "The Eternal Flame Solitaire",
+    description: "A brilliant-cut diamond, held in a classic four-prong setting. A timeless symbol of love and commitment.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img1.webp",
   },
   {
-    quote: "Quote for Image 2",
-    name: "Name 2",
-    designation: "Designation 2",
+    title: "Mystic Ocean Pearl Necklace",
+    description: "Lustrous Tahitian pearls, hand-knotted on a silk thread. A touch of oceanic mystery and elegance.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img2.webp",
   },
   {
-    quote: "Quote for Image 3",
-    name: "Name 3",
-    designation: "Designation 3",
+    title: "Enchanted Forest Emerald Earrings",
+    description: "Vivid green emeralds, surrounded by a halo of sparkling diamonds. Inspired by the beauty of nature.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img3.webp",
   },
   {
-    quote: "Quote for Image 4",
-    name: "Name 4",
-    designation: "Designation 4",
+    title: "Starlit Night Sapphire Bracelet",
+    description: "Deep blue sapphires, set in a classic tennis bracelet. A piece that captures the magic of a starlit night.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img4.webp",
   },
   {
-    quote: "Quote for Image 5",
-    name: "Name 5",
-    designation: "Designation 5",
+    title: "Crimson Passion Ruby Pendant",
+    description: "A heart-shaped ruby, symbolizing deep love and passion. The perfect gift for a loved one.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img5.webp",
   },
   {
-    quote: "Quote for Image 6",
-    name: "Name 6",
-    designation: "Designation 6",
+    title: "The Medusa's Gaze Chain",
+    description: "A classic Byzantine chain, handcrafted in 18k gold. A statement piece that exudes confidence.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img6.webp",
   },
   {
-    quote: "Quote for Image 7",
-    name: "Name 7",
-    designation: "Designation 7",
+    title: "The Gatsby's Whisper Brooch",
+    description: "An intricate Art Deco design, with geometric patterns and sparkling diamonds. A nod to the glamour of the Roaring Twenties.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img7.webp",
   },
   {
-    quote: "Quote for Image 8",
-    name: "Name 8",
-    designation: "Designation 8",
+    title: "The Everlasting Love Band",
+    description: "A full circle of diamonds, symbolizing eternal love and commitment. The perfect complement to any engagement ring.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img8.webp",
   },
   {
-    quote: "Quote for Image 9",
-    name: "Name 9",
-    designation: "Designation 9",
+    title: "The Aegean Dream Ring",
+    description: "A stunning blue topaz, reminiscent of the clear blue waters of the Aegean Sea. A true statement piece.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img9.webp",
   },
   {
-    quote: "Quote for Image 10",
-    name: "Name 10",
-    designation: "Designation 10",
+    title: "The Royal Orchid Amethyst Set",
+    description: "A matching set of amethyst necklace and earrings, inspired by the beauty of the royal orchid.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img10.webp",
   },
   {
-    quote: "Quote for Image 11",
-    name: "Name 11",
-    designation: "Designation 11",
+    title: "The Fire of the Outback Opal Pendant",
+    description: "A mesmerizing Australian opal, with a fiery play of colors. A unique and captivating piece.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img11.webp",
   },
   {
-    quote: "Quote for Image 12",
-    name: "Name 12",
-    designation: "Designation 12",
+    title: "The Celestial Timekeeper",
+    description: "A luxurious platinum watch, with a diamond-encrusted bezel. A timeless piece that combines elegance and precision.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img12.webp",
   },
   {
-    quote: "Quote for Image 13",
-    name: "Name 13",
-    designation: "Designation 13",
+    title: "The Sunstone Cascade Earrings",
+    description: "Golden citrine gemstones, cascading like a waterfall of sunlight. A pair of earrings that will light up any room.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img13.webp",
   },
   {
-    quote: "Quote for Image 14",
-    name: "Name 14",
-    designation: "Designation 14",
+    title: "The Spirit of the West Cuff",
+    description: "A bold turquoise cuff, handcrafted in sterling silver. A piece that captures the spirit of the American West.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img14.webp",
   },
   {
-    quote: "Quote for Image 15",
-    name: "Name 15",
-    designation: "Designation 15",
+    title: "The Victorian Romance Ring",
+    description: "A deep red garnet, set in an intricate Victorian-style ring. A piece that tells a story of romance and passion.",
     src: "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img15.webp",
   },
 ];
 
-function AnimatedTestimonialsDemo() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const handleTestimonialChange = useCallback((index: number) => {
-    setCurrentTestimonial(index);
-    // You could add analytics tracking here
-    console.log(`Testimonial changed to: ${TESTIMONIALS_DATA[index].name}`);
-  }, []);
-
-  const testimonials = useMemo(() => TESTIMONIALS_DATA, []);
+function JewelryShowcaseDemo() {
+  const jewelryItems = useMemo(() => JEWELRY_DATA, []);
 
   return (
     <div className="w-full">
-      <AnimatedTestimonials
-        testimonials={testimonials}
+      <JewelryShowcase
+        items={jewelryItems}
         autoplay={true}
         autoplayInterval={6000}
-        onTestimonialChange={handleTestimonialChange}
         className="py-16"
       />
     </div>
   );
 }
 
-export { AnimatedTestimonialsDemo };
+export { JewelryShowcaseDemo };

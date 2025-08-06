@@ -20,10 +20,10 @@ const TestimonialsColumns = () => {
             <div className="border py-1 px-4 rounded-lg">Testimonials</div>
           </div>
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5">
-            What our users say
+            Voices of Our Valued Clients
           </h2>
           <p className="text-center mt-5 opacity-75">
-            See what our customers have to say about us.
+            Hear what our cherished customers have to say about their GLOWTEJAM experience.
           </p>
         </motion.div>
         <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
