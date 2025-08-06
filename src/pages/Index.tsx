@@ -23,8 +23,8 @@ const Index = () => {
         subtitle="Experience the future of web development with our innovative solutions!"
       />
 
-      {/* Interactive Selector Section */}
-      <DemoOne />
+      {/* Case Studies Gallery Section */}
+      <Gallery4 />
 
       {/* Bento Gallery Section */}
       <BentoGridGalleryDemo />
@@ -35,8 +35,8 @@ const Index = () => {
       {/* Testimonials Columns Section */}
       <TestimonialsColumns />
 
-      {/* Case Studies Gallery Section */}
-      <Gallery4 />
+      {/* Interactive Selector Section */}
+      <DemoOne />
 
       {/* Footer Section */}
       <FooterSection />

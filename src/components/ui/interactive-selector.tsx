@@ -6,6 +6,7 @@ import {
   FaHotTub,
   FaHiking,
 } from "react-icons/fa";
+import { cn } from "@/lib/utils";
 
 const InteractiveSelector = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -17,35 +18,35 @@ const InteractiveSelector = () => {
       description: "Description for Image 1",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img1.webp",
-      icon: <FaCampground size={24} className="text-white" />,
+      icon: <FaCampground size={24} className="text-white dark:text-gray-100" />,
     },
     {
       title: "Image 2",
       description: "Description for Image 2",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img2.webp",
-      icon: <FaFire size={24} className="text-white" />,
+      icon: <FaFire size={24} className="text-white dark:text-gray-100" />,
     },
     {
       title: "Image 3",
       description: "Description for Image 3",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img3.webp",
-      icon: <FaTint size={24} className="text-white" />,
+      icon: <FaTint size={24} className="text-white dark:text-gray-100" />,
     },
     {
       title: "Image 4",
       description: "Description for Image 4",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img4.webp",
-      icon: <FaHotTub size={24} className="text-white" />,
+      icon: <FaHotTub size={24} className="text-white dark:text-gray-100" />,
     },
     {
       title: "Image 5",
       description: "Description for Image 5",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img5.webp",
-      icon: <FaHiking size={24} className="text-white" />,
+      icon: <FaHiking size={24} className="text-white dark:text-gray-100" />,
     },
   ];
 
@@ -71,29 +72,35 @@ const InteractiveSelector = () => {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-[#ffffff] font-sans text-white">
+    <div className="relative flex flex-col items-center justify-center min-h-screen bg-background font-sans">
       {/* Header Section */}
-      <div className="w-full max-w-2xl px-6 mt-8 mb-2 text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight drop-shadow-lg animate-fade-in delay-300">
+      <div className="w-full max-w-2xl px-4 sm:px-6 mt-8 mb-2 text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-3 tracking-tight drop-shadow-lg">
           Escape in Style
         </h1>
-        <p className="text-lg md:text-xl text-gray-300 font-medium max-w-xl mx-auto animate-fade-in delay-600">
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium max-w-xl mx-auto">
           Discover luxurious camping experiences in nature's most breathtaking
           spots.
         </p>
       </div>
 
-      <div className="h-12"></div>
+      <div className="h-6 sm:h-12"></div>
 
       {/* Options Container */}
-      <div className="options flex w-full max-w-[900px] min-w-[600px] h-[400px] mx-0 items-stretch overflow-hidden relative">
+      <div className="options flex w-full max-w-[900px] min-w-0 h-[300px] sm:h-[350px] md:h-[400px] mx-4 sm:mx-0 items-stretch overflow-hidden relative rounded-lg">
         {options.map((option, index) => (
           <div
             key={index}
-            className={`
-              option relative flex flex-col justify-end overflow-hidden transition-all duration-700 ease-in-out
-              ${activeIndex === index ? "active" : ""}
-            `}
+            className={cn(
+              "option relative flex flex-col justify-end overflow-hidden transition-all duration-700 ease-in-out cursor-pointer",
+              "border-2 border-solid bg-card",
+              activeIndex === index 
+                ? "border-primary shadow-2xl z-10" 
+                : "border-border shadow-lg z-[1]",
+              activeIndex === index ? "flex-[7_1_0%]" : "flex-[1_1_0%]",
+              index === 0 && "rounded-l-lg",
+              index === options.length - 1 && "rounded-r-lg"
+            )}
             style={{
               backgroundImage: `url('${option.image}')`,
               backgroundSize: activeIndex === index ? "auto 100%" : "auto 120%",
@@ -103,26 +110,8 @@ const InteractiveSelector = () => {
               transform: animatedOptions.includes(index)
                 ? "translateX(0)"
                 : "translateX(-60px)",
-              minWidth: "60px",
+              minWidth: "40px",
               minHeight: "100px",
-              margin: 0,
-              borderRadius: 0,
-              borderWidth: "2px",
-              borderStyle: "solid",
-              borderColor: activeIndex === index ? "#fff" : "#292929",
-              cursor: "pointer",
-              backgroundColor: "#18181b",
-              boxShadow:
-                activeIndex === index
-                  ? "0 20px 60px rgba(0,0,0,0.50)"
-                  : "0 10px 30px rgba(0,0,0,0.30)",
-              flex: activeIndex === index ? "7 1 0%" : "1 1 0%",
-              zIndex: activeIndex === index ? 10 : 1,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              position: "relative",
-              overflow: "hidden",
               willChange:
                 "flex-grow, box-shadow, background-size, background-position",
             }}
@@ -136,19 +125,19 @@ const InteractiveSelector = () => {
                 height: "120px",
                 boxShadow:
                   activeIndex === index
-                    ? "inset 0 -120px 120px -120px #000, inset 0 -120px 120px -80px #000"
-                    : "inset 0 -120px 0px -120px #000, inset 0 -120px 0px -80px #000",
+                    ? "inset 0 -120px 120px -120px rgba(0,0,0,0.7), inset 0 -120px 120px -80px rgba(0,0,0,0.5)"
+                    : "inset 0 -120px 0px -120px rgba(0,0,0,0.7), inset 0 -120px 0px -80px rgba(0,0,0,0.5)",
               }}
             ></div>
 
             {/* Label with icon and info */}
-            <div className="label absolute left-0 right-0 bottom-5 flex items-center justify-start h-12 z-2 pointer-events-none px-4 gap-3 w-full">
-              <div className="icon min-w-[44px] max-w-[44px] h-[44px] flex items-center justify-center rounded-full bg-[rgba(32,32,32,0.85)] backdrop-blur-[10px] shadow-[0_1px_4px_rgba(0,0,0,0.18)] border-2 border-[#444] flex-shrink-0 flex-grow-0 transition-all duration-200">
+            <div className="label absolute left-0 right-0 bottom-3 sm:bottom-5 flex items-center justify-start h-10 sm:h-12 z-[2] pointer-events-none px-2 sm:px-4 gap-2 sm:gap-3 w-full">
+              <div className="icon min-w-[36px] sm:min-w-[44px] max-w-[36px] sm:max-w-[44px] h-[36px] sm:h-[44px] flex items-center justify-center rounded-full bg-background/90 dark:bg-card/90 backdrop-blur-[10px] shadow-lg border-2 border-border flex-shrink-0 flex-grow-0 transition-all duration-200">
                 {option.icon}
               </div>
-              <div className="info text-white whitespace-pre relative">
+              <div className="info text-white dark:text-gray-100 whitespace-pre relative">
                 <div
-                  className="main font-bold text-lg transition-all duration-700 ease-in-out"
+                  className="main font-bold text-sm sm:text-base md:text-lg transition-all duration-700 ease-in-out"
                   style={{
                     opacity: activeIndex === index ? 1 : 0,
                     transform:
@@ -160,7 +149,7 @@ const InteractiveSelector = () => {
                   {option.title}
                 </div>
                 <div
-                  className="sub text-base text-gray-300 transition-all duration-700 ease-in-out"
+                  className="sub text-xs sm:text-sm md:text-base text-gray-200 dark:text-gray-300 transition-all duration-700 ease-in-out"
                   style={{
                     opacity: activeIndex === index ? 1 : 0,
                     transform:

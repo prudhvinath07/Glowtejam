@@ -65,7 +65,7 @@ export function BentoGridGalleryDemo() {
       <InteractiveBentoGallery
         mediaItems={mediaItems}
         title="Gallery Shots Collection"
-        description="Drag and explore our curated collection of shots"
+        description="Explore our curated collection of shots"
       />
     </div>
   );

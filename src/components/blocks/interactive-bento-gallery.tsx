@@ -140,7 +140,7 @@ interface GalleryModalProps {
 }
 
 const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaItems }: GalleryModalProps) => {
-    const [dockPosition, setDockPosition] = useState({ x: 0, y: 0 });  // Track the position of the dockable panel
+    // const [dockPosition, setDockPosition] = useState({ x: 0, y: 0 });  // REMOVED: Track the position of the dockable panel - drag functionality disabled
 
     if (!isOpen) return null; // Return null if the modal is not open
 
@@ -214,27 +214,26 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                 </motion.button>
             </motion.div>
 
-            {/* Draggable Dock */}
+            {/* Static Dock - Drag functionality removed for better mobile experience */}
             <motion.div
-                drag
-                dragMomentum={false}
-                dragElastic={0.1}
+                // drag - REMOVED: Drag functionality disabled for mobile
+                // dragMomentum={false}
+                // dragElastic={0.1}
                 initial={false}
-                animate={{ x: dockPosition.x, y: dockPosition.y }}
-                onDragEnd={(_, info) => {
-                    setDockPosition(prev => ({
-                        x: prev.x + info.offset.x,
-                        y: prev.y + info.offset.y
-                    }));
-                }}
-                className="fixed z-50 left-1/2 bottom-4 -translate-x-1/2 touch-none"
+                // animate={{ x: dockPosition.x, y: dockPosition.y }} - REMOVED: No position tracking
+                // onDragEnd={(_, info) => { - REMOVED: Drag end handler
+                //     setDockPosition(prev => ({
+                //         x: prev.x + info.offset.x,
+                //         y: prev.y + info.offset.y
+                //     }));
+                // }}
+                className="fixed z-50 left-1/2 bottom-4 -translate-x-1/2"
             >
                 <motion.div
                     className="relative rounded-xl bg-sky-400/20 backdrop-blur-xl 
-                             border border-blue-400/30 shadow-lg
-                             cursor-grab active:cursor-grabbing"
+                             border border-blue-400/30 shadow-lg"
                 >
-                    <div className="flex items-center -space-x-2 px-3 py-2">
+                    <div className="flex items-center -space-x-1 sm:-space-x-2 px-2 sm:px-3 py-1.5 sm:py-2">
                         {mediaItems.map((item, index) => (
                             <motion.div
                                 key={item.id}
@@ -296,7 +295,7 @@ interface InteractiveBentoGalleryProps {
 const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ mediaItems, title, description }) => {
     const [selectedItem, setSelectedItem] = useState<MediaItemType | null>(null);
     const [items, setItems] = useState(mediaItems);
-    const [isDragging, setIsDragging] = useState(false);
+    // const [isDragging, setIsDragging] = useState(false); // REMOVED: No longer needed since drag is disabled
 
     return (
         <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -331,7 +330,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                     />
                 ) : (
                     <motion.div
-                        className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 auto-rows-[60px]"
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 auto-rows-[150px] sm:auto-rows-[180px] md:auto-rows-[200px]"
                         initial="hidden"
                         animate="visible"
                         exit="hidden"
@@ -347,8 +346,8 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                             <motion.div
                                 key={item.id}
                                 layoutId={`media-${item.id}`}
-                                className={`relative overflow-hidden rounded-xl cursor-move ${item.span}`}
-                                onClick={() => !isDragging && setSelectedItem(item)}
+                                className={`relative overflow-hidden rounded-xl cursor-pointer ${item.span}`}
+                                onClick={() => setSelectedItem(item)}
                                 variants={{
                                     hidden: { y: 50, scale: 0.9, opacity: 0 },
                                     visible: {
@@ -364,29 +363,30 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                                     }
                                 }}
                                 whileHover={{ scale: 1.02 }}
-                                drag
-                                dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                                dragElastic={1}
-                                onDragStart={() => setIsDragging(true)}
-                                onDragEnd={(e, info) => {
-                                    setIsDragging(false);
-                                    const moveDistance = info.offset.x + info.offset.y;
-                                    if (Math.abs(moveDistance) > 50) {
-                                        const newItems = [...items];
-                                        const draggedItem = newItems[index];
-                                        const targetIndex = moveDistance > 0 ?
-                                            Math.min(index + 1, items.length - 1) :
-                                            Math.max(index - 1, 0);
-                                        newItems.splice(index, 1);
-                                        newItems.splice(targetIndex, 0, draggedItem);
-                                        setItems(newItems);
-                                    }
-                                }}
+                                whileTap={{ scale: 0.98 }}
+                                // drag - REMOVED: Drag functionality disabled for better mobile experience
+                                // dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+                                // dragElastic={1}
+                                // onDragStart={() => setIsDragging(true)}
+                                // onDragEnd={(e, info) => {
+                                //     setIsDragging(false);
+                                //     const moveDistance = info.offset.x + info.offset.y;
+                                //     if (Math.abs(moveDistance) > 50) {
+                                //         const newItems = [...items];
+                                //         const draggedItem = newItems[index];
+                                //         const targetIndex = moveDistance > 0 ?
+                                //             Math.min(index + 1, items.length - 1) :
+                                //             Math.max(index - 1, 0);
+                                //         newItems.splice(index, 1);
+                                //         newItems.splice(targetIndex, 0, draggedItem);
+                                //         setItems(newItems);
+                                //     }
+                                // }}
                             >
                                 <MediaItem
                                     item={item}
                                     className="absolute inset-0 w-full h-full"
-                                    onClick={() => !isDragging && setSelectedItem(item)}
+                                    onClick={() => setSelectedItem(item)}
                                 />
                                 <motion.div
                                     className="absolute inset-0 flex flex-col justify-end p-2 sm:p-3 md:p-4"

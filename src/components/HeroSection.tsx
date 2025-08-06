@@ -7,13 +7,13 @@ interface HeroSectionProps {
 const HeroSection = ({
   title = "Welcome to Your App",
   subtitle = "Beautiful tubelight navbar above!",
-  backgroundImage = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05"
+  backgroundImage = "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img1.webp",
 }: HeroSectionProps) => {
   return (
-    <div 
+    <div
       className="relative flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url('${backgroundImage}')`
+        backgroundImage: `url('${backgroundImage}')`,
       }}
     >
       <div className="absolute inset-0 bg-black/40"></div>
