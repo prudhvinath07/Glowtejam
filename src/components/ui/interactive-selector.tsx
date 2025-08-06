@@ -18,35 +18,35 @@ const InteractiveSelector = () => {
       description: "Symbol of purity and eternal love.",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img1.webp",
-      icon: <Gem size={24} className="text-white dark:text-gray-100" />,
+      icon: <Gem size={24} className="text-foreground" />,
     },
     {
       title: "The Ruby's Passion",
       description: "Represents love, passion, and courage.",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img5.webp",
-      icon: <Heart size={24} className="text-white dark:text-gray-100" />,
+      icon: <Heart size={24} className="text-foreground" />,
     },
     {
       title: "The Emerald's Hope",
       description: "Symbol of hope, renewal, and growth.",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img3.webp",
-      icon: <Leaf size={24} className="text-white dark:text-gray-100" />,
+      icon: <Leaf size={24} className="text-foreground" />,
     },
     {
       title: "The Sapphire's Wisdom",
       description: "Represents wisdom, loyalty, and nobility.",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img4.webp",
-      icon: <Sparkles size={24} className="text-white dark:text-gray-100" />,
+      icon: <Sparkles size={24} className="text-foreground" />,
     },
     {
       title: "The Pearl's Purity",
       description: "Symbol of purity, innocence, and wisdom.",
       image:
         "https://cdn.jsdelivr.net/gh/prudhvinath07/media_cdn007@latest/img2.webp",
-      icon: <Droplet size={24} className="text-white dark:text-gray-100" />,
+      icon: <Droplet size={24} className="text-foreground" />,
     },
   ];
 

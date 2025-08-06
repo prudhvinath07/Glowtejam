@@ -52,6 +52,23 @@ export const JewelryShowcase = ({
     }
   }, [autoplay, autoplayInterval, handleNext, items.length]);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (items.length <= 1) return;
+      
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        handlePrev();
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        handleNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handlePrev, handleNext, items.length]);
+
   const randomRotateY = useMemo(() => {
     return () => Math.floor(Math.random() * 21) - 10;
   }, []);

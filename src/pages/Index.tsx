@@ -18,19 +18,27 @@ const Index = () => {
       <NavBarDemo />
 
       {/* Hero Section */}
-      <HeroSection
-        title="Welcome to GLOWTEJAM"
-        subtitle="Experience the future of web development with our innovative solutions!"
-      />
+      <section id="home">
+        <HeroSection
+          title="Welcome to GLOWTEJAM"
+          subtitle="Experience the future of web development with our innovative solutions!"
+        />
+      </section>
 
       {/* Case Studies Gallery Section */}
-      <Gallery4 />
+      <section id="chains">
+        <Gallery4 />
+      </section>
 
       {/* Bento Gallery Section */}
-      <BentoGridGalleryDemo />
+      <section id="rings">
+        <BentoGridGalleryDemo />
+      </section>
 
       {/* Jewelry Showcase Section */}
-      <JewelryShowcaseDemo />
+      <section id="diamonds">
+        <JewelryShowcaseDemo />
+      </section>
 
       {/* Testimonials Columns Section */}
       <TestimonialsColumns />

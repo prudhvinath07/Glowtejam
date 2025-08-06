@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
 import { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -29,6 +28,14 @@ export function NavBar({ items, className }: NavBarProps) {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  const handleNavClick = (url: string, name: string) => {
+    setActiveTab(name)
+    const element = document.querySelector(url)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <div
       className={cn(
@@ -42,10 +49,9 @@ export function NavBar({ items, className }: NavBarProps) {
           const isActive = activeTab === item.name
 
           return (
-            <Link
+            <button
               key={item.name}
-              to={item.url}
-              onClick={() => setActiveTab(item.name)}
+              onClick={() => handleNavClick(item.url, item.name)}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
                 "text-foreground/80 hover:text-primary",
@@ -74,7 +80,7 @@ export function NavBar({ items, className }: NavBarProps) {
                   </div>
                 </motion.div>
               )}
-            </Link>
+            </button>
           )
         })}
       </div>
